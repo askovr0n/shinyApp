@@ -1,31 +1,13 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
 
 authenticate <- function(id, secret) {
     # authenticate the spotify client stuff
-    Sys.setenv(SPOTIFY_CLIENT_ID = id)
-    Sys.setenv(SPOTIFY_CLIENT_SECRET = secret)
+    Sys.setenv(SPOTIFY_CLIENT_ID = '65bd18c74fd34be0a24117ab05b98b40')
+    Sys.setenv(SPOTIFY_CLIENT_SECRET = '34bd47c92edf465993287ff4b707bf38')
     
     access_token <- get_spotify_access_token()
 }
 
-fav_artists <- function() {
-    as.data.frame(get_my_top_artists_or_tracks(type = 'artists', 
-                                               time_range = 'long_term', 
-                                               limit = 25) %>% 
-                      rename(followers = followers.total) %>% 
-                      select(.data$genres, .data$name, .data$popularity, .data$followers) %>% 
-                      rowwise %>% 
-                      mutate(genres = paste(.data$genres, collapse = ', ')) %>% 
-                      ungroup
-    )
-}
+
 
 fav_artists_datatable <- function() {
     datatable(fav_artists()) %>% formatStyle(c('name', 'genres', 'popularity', 'followers'), color = 'black')
@@ -45,8 +27,20 @@ sentiment_datatable <- function(artist_name) {
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-    validate <- eventReactive(input$btn, {authenticate(input$id, input$secret)})
+    validate <- observeEvent(input$btn, {authenticate(input$id, input$secret)})
     output$validate_message <- renderText({validate() }) # 
+    
+    fav_artists <- function() {
+      as.data.frame(get_my_top_artists_or_tracks(type = 'artists', 
+                                                 time_range = 'long_term', 
+                                                 limit = 25) %>% 
+                      rename(followers = followers.total) %>% 
+                      select(.data$genres, .data$name, .data$popularity, .data$followers) %>% 
+                      rowwise %>% 
+                      mutate(genres = paste(.data$genres, collapse = ', ')) %>% 
+                      ungroup
+      )
+    }
     
     output$favorite_artists_table <- DT::renderDataTable({ fav_artists_datatable() }) %>% bindEvent(validate)
     

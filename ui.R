@@ -1,4 +1,4 @@
-shinyUI(fluidPage(theme = shinytheme("cyborg"),
+shinyUI(fluidPage(
                   navbarPage(
                     # theme = "cerulean",  # <--- To use a theme, uncomment this
                     "Spotify User Analysis",
