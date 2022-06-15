@@ -52,11 +52,32 @@ server <- function(input, output) {
         arrange(desc(n))})
       
     
-    output$top5artistsTable <- DT::renderDataTable(top_5_artists())
+    output$top5artistsTable <-
+      DT::renderDataTable(
+        top_5_artists() %>% DT::datatable(.) %>% DT::formatStyle(
+          0:nrow(top_5_artists()),
+          color = "black",
+          backgroundColor = "#5cc639"
+        )
+      )
     
-    output$top5tracksTable <- DT::renderDataTable(top_5_tracks())
+    output$top5tracksTable <-
+      DT::renderDataTable(
+        top_5_tracks() %>% DT::datatable(.) %>% DT::formatStyle(
+          0:nrow(top_5_artists()),
+          color = "black",
+          backgroundColor = "#5cc639"
+        )
+      )
     
-    output$top10favouriteArtists <- DT::renderDataTable(track_num_artist())
+    output$top10favouriteArtists <-
+      DT::renderDataTable(
+        track_num_artist() %>% DT::datatable(.) %>% DT::formatStyle(
+          0:nrow(top_5_artists()),
+          color = "black",
+          backgroundColor = "#5cc639"
+        )
+      )
     }
 
 

@@ -1,4 +1,4 @@
-shinyUI(fluidPage(
+shinyUI(fluidPage(theme = shinytheme("cyborg"),
                   navbarPage(
                     # theme = "cerulean",  # <--- To use a theme, uncomment this
                     "Spotify User Analysis",
@@ -26,19 +26,63 @@ shinyUI(fluidPage(
                              
                              
                     ), # Navbar 2, tabPanel
-                    tabPanel("Popularity",
-                             sidebarPanel(
-                               tags$h3("Time Range:"),
-                               selectInput("inputTerm", "Time Range", c('4 weeks'='short_term', '6 months'='medium_term', 'All history'='long_term'))
-                             ), # sidebarPanel
-                             mainPanel(fluidRow(column(5, DT::dataTableOutput("top5artistsTable")), 
-                                                column(5, DT::dataTableOutput("top5tracksTable"), offset = 2)),
-                                       br(),
-                                       fluidRow(column(5, DT::dataTableOutput("top10favouriteArtists")), 
-                                                column(5, "d", offset = 2))
-                               
-                               ,
-                             )# mainPanel
+                    tabPanel(
+                      "Popularity",
+                      sidebarPanel(
+                        tags$h3("Time Range:"),
+                        selectInput(
+                          "inputTerm",
+                          "Time Range",
+                          c(
+                            '4 weeks' = 'short_term',
+                            '6 months' = 'medium_term',
+                            'All history' = 'long_term'
+                          )
+                        ),fluidRow(img(src="anime.gif", style="display: block; margin-left: auto; margin-right: auto;"))
+                      ),
+                      # , height='250px',width='500px'
+                      # sidebarPanel
+                      mainPanel(
+                        tags$style(HTML("
+                  
+                    thead {
+                    color: #000000;
+                    background-color: #5cc639;
+                    }
+
+                     tbody {
+                    color: #000000;
+                    background-color: #5cc639 !important;
+                    }
+
+                   "
+                                        
+                                        
+                        )),
+                        fluidRow(column(4, tags$h3(
+                          "Top 5 Most Listened Artists"
+                        ),offset = 1),
+                        column(
+                          4, tags$h3("Top 5 Most Listened Tracks"), offset = 2
+                        )),
+                        fluidRow(
+                          column(4, DT::dataTableOutput("top5artistsTable"), offset = 1),
+                          column(4, DT::dataTableOutput("top5tracksTable"), offset = 2)
+                        ),
+                        br(),
+                        fluidRow(column(4, tags$h3(
+                          "How often does the artist appear in liked songs?"
+                        ),offset = 1),
+                        column(
+                          4, tags$h3("Top 5 Most Listened Tracks"), offset = 2
+                        )),
+                        fluidRow(column(
+                          4, DT::dataTableOutput("top10favouriteArtists"), offset = 1
+                        ),
+                        column(4, "d", offset = 2))
+                        
+                        ,
+                      )# mainPanel
                             
                     ), # Navbar 3, tabPanel
                     tabPanel("Recommendations"
