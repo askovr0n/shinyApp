@@ -27,7 +27,7 @@ shinyUI(fluidPage(theme = shinytheme("cyborg"),
                              
                     ), # Navbar 2, tabPanel
                     tabPanel(
-                      "Popularity",
+                      "Favourite Tracks and Artists",
                       sidebarPanel(
                         tags$h3("Time Range:"),
                         selectInput(
@@ -85,10 +85,47 @@ shinyUI(fluidPage(theme = shinytheme("cyborg"),
                       )# mainPanel
                             
                     ), # Navbar 3, tabPanel
-                    tabPanel("Recommendations"
-                             
-                             ) 
-                    ) 
+                    tabPanel("Recommendations",
+                             sidebarPanel(
+                               tags$h3("Choose statistics to analyze:"),
+                               selectInput(
+                                 "inputxAxis",
+                                 "Category on X Axis",
+                                 c(
+                                   "Danceability"="danceability",
+                                   "Energy"="energy",
+                                   "Loudness"="loudness",
+                                   "Speechiness"="speechiness",
+                                   "Acousticness"="acousticness",
+                                   "Instrumentalness"="instrumentalness" ,
+                                   "Liveness"="liveness",
+                                   "Valence"="valence",
+                                   "Tempo"="tempo"
+                                 )
+                               ),
+                               selectInput(
+                                 "inputyAxis",
+                                 "Category on Y Axis",
+                                 c(
+                                   "Danceability"="danceability",
+                                   "Energy"="energy",
+                                   "Loudness"="loudness",
+                                   "Speechiness"="speechiness",
+                                   "Acousticness"="acousticness",
+                                   "Instrumentalness"="instrumentalness" ,
+                                   "Liveness"="liveness",
+                                   "Valence"="valence",
+                                   "Tempo"="tempo"
+                                 )
+                               )
+                             ),
+                             mainPanel(
+                               tags$h3("Let's look closer at statistics of every song that belongs to Liked Playlist"),
+                               fluidRow(
+                                 column(6, plotlyOutput("CategoryPlot"), offset = 3)
+                               ) 
+                               ))
+                  ) 
                     
                  # ) # navbarPage
 ) # fluidPage

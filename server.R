@@ -11,19 +11,34 @@ authenticate <- function(id, secret) {
 
 server <- function(input, output) {
     validate <- observeEvent(input$btn, {authenticate(input$id, input$secret)})
-    output$validate_message <- renderText({validate() }) 
+    output$validate_message <- renderText({
+      if (validate()) {
+        "Succesfully logged in"
+      }
+      else {
+        "Something goes wrong!"
+      }
+    }) 
     
-    top_5_artists <- reactive({get_my_top_artists_or_tracks(type = 'artists',
-                                                  time_range = input$inputTerm,
-                                                  limit = 5) %>% 
-        mutate(Position = row_number()) %>% 
-        select(Position, name) %>% tibble()})
+    top_5_artists <-
+      reactive({
+        get_my_top_artists_or_tracks(type = 'artists',
+                                     time_range = input$inputTerm,
+                                     limit = 5) %>%
+          select(name) %>% 
+          rename('Artist Name' = 'name') %>% 
+          tibble()
+      })
     
-    top_5_tracks <- reactive({get_my_top_artists_or_tracks(type = 'tracks',
-                                                            time_range = input$inputTerm,
-                                                            limit = 5) %>% 
-        mutate(Position = row_number()) %>% 
-        select(Position, name) %>% tibble()})
+    top_5_tracks <-
+      reactive({
+        get_my_top_artists_or_tracks(type = 'tracks',
+                                     time_range = input$inputTerm,
+                                     limit = 5) %>%
+          select(name) %>% 
+          rename('Track Name' = 'name') %>% 
+          tibble()
+      })
     
     all_my_fav_tracks <-
       reactive({
@@ -48,15 +63,16 @@ server <- function(input, output) {
         left_join(artist_from_fav_tracks(), by = 'id',.) %>%
         unique() %>%
         select(-id) %>%
-        top_n(20, n) %>% 
-        arrange(desc(n))})
+        top_n(20, n) %>%
+        rename('Artist Name' = 'name', 'Quantity' = n) %>% 
+        arrange(desc(Quantity))})
       
     
     output$top5artistsTable <-
       DT::renderDataTable(
         top_5_artists() %>% DT::datatable(.) %>% DT::formatStyle(
           0:nrow(top_5_artists()),
-          color = "black",
+          color = "white",
           backgroundColor = "#5cc639"
         )
       )
@@ -65,7 +81,7 @@ server <- function(input, output) {
       DT::renderDataTable(
         top_5_tracks() %>% DT::datatable(.) %>% DT::formatStyle(
           0:nrow(top_5_artists()),
-          color = "black",
+          color = "white",
           backgroundColor = "#5cc639"
         )
       )
@@ -74,10 +90,20 @@ server <- function(input, output) {
       DT::renderDataTable(
         track_num_artist() %>% DT::datatable(.) %>% DT::formatStyle(
           0:nrow(top_5_artists()),
-          color = "black",
+          color = "white",
           backgroundColor = "#5cc639"
         )
       )
+    
+    output$CategoryPlot <- renderPlotly({
+      p <- features[[1]][[1]] %>%
+        select(input$inputxAxis, input$inputyAxis, id) %>%
+        ggplot(aes_string(input$inputxAxis, input$inputyAxis, color = "id")) +
+        geom_point() +
+        theme_bw()
+      ggplotly(p)
+    })
+    
     }
 
 
