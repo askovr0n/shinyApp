@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: R Wrapper for the 'Spotify' Web API</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+<h1> R Wrapper for the 'Spotify' Web API
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;spotifyr&rsquo; version 2.2.3</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="add_tracks_to_playlist.html">add_tracks_to_playlist</a></td>
+<td>Add Tracks to User’s Playlist</td></tr>
+<tr><td style="width: 25%;"><a href="change_playlist_details.html">change_playlist_details</a></td>
+<td>Change a playlist’s name and public/private state. (The user must, of course, own the playlist.)</td></tr>
+<tr><td style="width: 25%;"><a href="check_me_following.html">check_me_following</a></td>
+<td>Check Me Following</td></tr>
+<tr><td style="width: 25%;"><a href="check_users_following.html">check_users_following</a></td>
+<td>Check if Users Follow a Playlist</td></tr>
+<tr><td style="width: 25%;"><a href="create_playlist.html">create_playlist</a></td>
+<td>Create Playlist for User</td></tr>
+<tr><td style="width: 25%;"><a href="dedupe_album_names.html">dedupe_album_names</a></td>
+<td>Remove duplicate album names</td></tr>
+<tr><td style="width: 25%;"><a href="follow_artists_or_users.html">follow_artists_or_users</a></td>
+<td>Add Current User as Follower Artists or Other Users</td></tr>
+<tr><td style="width: 25%;"><a href="follow_playlist.html">follow_playlist</a></td>
+<td>Add Current User to Followers of Playlist.</td></tr>
+<tr><td style="width: 25%;"><a href="get_album.html">get_album</a></td>
+<td>Get Spotify catalog information for a single album.</td></tr>
+<tr><td style="width: 25%;"><a href="get_albums.html">get_albums</a></td>
+<td>Get Spotify catalog information for multiple albums identified by their Spotify IDs.</td></tr>
+<tr><td style="width: 25%;"><a href="get_album_tracks.html">get_album_tracks</a></td>
+<td>Get Spotify catalog information about an album’s tracks. Optional parameters can be used to limit the number of tracks returned.</td></tr>
+<tr><td style="width: 25%;"><a href="get_artist.html">get_artist</a></td>
+<td>Get Spotify catalog information for a single artist identified by their unique Spotify ID.</td></tr>
+<tr><td style="width: 25%;"><a href="get_artists.html">get_artists</a></td>
+<td>Get Spotify catalog information for multiple artists identified by their Spotify IDs.</td></tr>
+<tr><td style="width: 25%;"><a href="get_artist_albums.html">get_artist_albums</a></td>
+<td>Get Spotify catalog information for multiple artists identified by their Spotify IDs.</td></tr>
+<tr><td style="width: 25%;"><a href="get_artist_audio_features.html">get_artist_audio_features</a></td>
+<td>Get Audio Features For Artists' Discography</td></tr>
+<tr><td style="width: 25%;"><a href="get_artist_top_tracks.html">get_artist_top_tracks</a></td>
+<td>Get Spotify catalog information about an artist’s top tracks by country.</td></tr>
+<tr><td style="width: 25%;"><a href="get_categories.html">get_categories</a></td>
+<td>Get a list of Spotify categories</td></tr>
+<tr><td style="width: 25%;"><a href="get_category.html">get_category</a></td>
+<td>Get a single category used to tag items</td></tr>
+<tr><td style="width: 25%;"><a href="get_category_playlists.html">get_category_playlists</a></td>
+<td>Get a list of Spotify playlists tagged with a particular category</td></tr>
+<tr><td style="width: 25%;"><a href="get_discography.html">get_discography</a></td>
+<td>Retrieve Artist Discography with Song Lyrics and Audio Info</td></tr>
+<tr><td style="width: 25%;"><a href="get_featured_playlists.html">get_featured_playlists</a></td>
+<td>Get list of Spotify featured playlists</td></tr>
+<tr><td style="width: 25%;"><a href="get_genre_artists.html">get_genre_artists</a></td>
+<td>Search for Artists by Genre</td></tr>
+<tr><td style="width: 25%;"><a href="get_label_artists.html">get_label_artists</a></td>
+<td>Search for artists by label</td></tr>
+<tr><td style="width: 25%;"><a href="get_my_currently_playing.html">get_my_currently_playing</a></td>
+<td>Get the object currently being played on the user’s Spotify account.</td></tr>
+<tr><td style="width: 25%;"><a href="get_my_current_playback.html">get_my_current_playback</a></td>
+<td>Get information about the user’s current playback state, including track, track progress, and active device.</td></tr>
+<tr><td style="width: 25%;"><a href="get_my_devices.html">get_my_devices</a></td>
+<td>Get information about a user’s available devices.</td></tr>
+<tr><td style="width: 25%;"><a href="get_my_followed_artists.html">get_my_followed_artists</a></td>
+<td>Get My Followed Artists</td></tr>
+<tr><td style="width: 25%;"><a href="get_my_playlists.html">get_my_playlists</a></td>
+<td>Get List of My Playlists</td></tr>
+<tr><td style="width: 25%;"><a href="get_my_profile.html">get_my_profile</a></td>
+<td>Get User Profile Information</td></tr>
+<tr><td style="width: 25%;"><a href="get_my_recently_played.html">get_my_recently_played</a></td>
+<td>Get Current User's Recently Played Tracks</td></tr>
+<tr><td style="width: 25%;"><a href="get_my_saved_albums.html">get_my_saved_albums</a></td>
+<td>Get Current User's Saved Albums</td></tr>
+<tr><td style="width: 25%;"><a href="get_my_saved_tracks.html">get_my_saved_tracks</a></td>
+<td>Get User's Saved Tracks</td></tr>
+<tr><td style="width: 25%;"><a href="get_my_top_artists_or_tracks.html">get_my_top_artists_or_tracks</a></td>
+<td>Get User’s Top Artists or Tracks</td></tr>
+<tr><td style="width: 25%;"><a href="get_new_releases.html">get_new_releases</a></td>
+<td>Get new releases</td></tr>
+<tr><td style="width: 25%;"><a href="get_playlist.html">get_playlist</a></td>
+<td>Get User Playlist</td></tr>
+<tr><td style="width: 25%;"><a href="get_playlist_audio_features.html">get_playlist_audio_features</a></td>
+<td>Get Features and Popularity of Playlists on Spotify</td></tr>
+<tr><td style="width: 25%;"><a href="get_playlist_cover_image.html">get_playlist_cover_image</a></td>
+<td>Get Image Associated with Playlist</td></tr>
+<tr><td style="width: 25%;"><a href="get_playlist_tracks.html">get_playlist_tracks</a></td>
+<td>Get Details of User Playlist Tracks.</td></tr>
+<tr><td style="width: 25%;"><a href="get_recommendations.html">get_recommendations</a></td>
+<td>Create a playlist-style listening experience based on seed artists, tracks and genres.</td></tr>
+<tr><td style="width: 25%;"><a href="get_recommendations_all.html">get_recommendations_all</a></td>
+<td>Get recommendations for unlimited vector of track IDs</td></tr>
+<tr><td style="width: 25%;"><a href="get_related_artists.html">get_related_artists</a></td>
+<td>Get Spotify catalog information about artists similar to a given artist. Similarity is based on analysis of the Spotify community’s listening history.</td></tr>
+<tr><td style="width: 25%;"><a href="get_show.html">get_show</a></td>
+<td>Get Spotify catalog information for a single show.</td></tr>
+<tr><td style="width: 25%;"><a href="get_shows.html">get_shows</a></td>
+<td>Get Spotify catalog information for multiple shows identified by their Spotify IDs.</td></tr>
+<tr><td style="width: 25%;"><a href="get_show_episodes.html">get_show_episodes</a></td>
+<td>Get Spotify catalog information about an show's episodes. Optional parameters can be used to limit the number of episodes returned.</td></tr>
+<tr><td style="width: 25%;"><a href="get_spotify_access_token.html">get_spotify_access_token</a></td>
+<td>Get Spotify Access Token</td></tr>
+<tr><td style="width: 25%;"><a href="get_spotify_authorization_code.html">get_spotify_authorization_code</a></td>
+<td>Get Spotify Authorization Code</td></tr>
+<tr><td style="width: 25%;"><a href="get_track.html">get_track</a></td>
+<td>Get Spotify catalog information for a single track identified by its unique Spotify ID.</td></tr>
+<tr><td style="width: 25%;"><a href="get_tracks.html">get_tracks</a></td>
+<td>Get Spotify catalog information for a single track identified by its unique Spotify ID.</td></tr>
+<tr><td style="width: 25%;"><a href="get_track_audio_analysis.html">get_track_audio_analysis</a></td>
+<td>Get a detailed audio analysis for a single track identified by its unique Spotify ID.</td></tr>
+<tr><td style="width: 25%;"><a href="get_track_audio_features.html">get_track_audio_features</a></td>
+<td>Get audio features of tracks</td></tr>
+<tr><td style="width: 25%;"><a href="get_user_audio_features.html">get_user_audio_features</a></td>
+<td>Get User Playlist Audio Features</td></tr>
+<tr><td style="width: 25%;"><a href="get_user_playlists.html">get_user_playlists</a></td>
+<td>Get List of User Playlists</td></tr>
+<tr><td style="width: 25%;"><a href="get_user_profile.html">get_user_profile</a></td>
+<td>Get User Public Profile Information</td></tr>
+<tr><td style="width: 25%;"><a href="pause_my_playback.html">pause_my_playback</a></td>
+<td>Pause Playback</td></tr>
+<tr><td style="width: 25%;"><a href="tidy.html">print.playlist</a></td>
+<td>Tidy a Playlist</td></tr>
+<tr><td style="width: 25%;"><a href="remove_tracks_from_playlist.html">remove_tracks_from_playlist</a></td>
+<td>Remove Tracks from User’s Playlist</td></tr>
+<tr><td style="width: 25%;"><a href="scopes.html">scopes</a></td>
+<td>Valid Authorization Scopes</td></tr>
+<tr><td style="width: 25%;"><a href="search_spotify.html">search_spotify</a></td>
+<td>Search for an Item</td></tr>
+<tr><td style="width: 25%;"><a href="seek_to_position.html">seek_to_position</a></td>
+<td>Seeks to the given position in the user’s currently playing track.</td></tr>
+<tr><td style="width: 25%;"><a href="set_my_repeat_mode.html">set_my_repeat_mode</a></td>
+<td>Set User Playback Mode</td></tr>
+<tr><td style="width: 25%;"><a href="set_my_volume.html">set_my_volume</a></td>
+<td>Set User Device Volume</td></tr>
+<tr><td style="width: 25%;"><a href="skip_my_playback.html">skip_my_playback</a></td>
+<td>Skips to Next Track</td></tr>
+<tr><td style="width: 25%;"><a href="skip_my_playback_previous.html">skip_my_playback_previous</a></td>
+<td>Skips to previous track in the user’s queue.</td></tr>
+<tr><td style="width: 25%;"><a href="spotifyr.html">spotifyr</a></td>
+<td>'spotifyr' package</td></tr>
+<tr><td style="width: 25%;"><a href="start_my_playback.html">start_my_playback</a></td>
+<td>Skips to previous track in the user’s queue.</td></tr>
+<tr><td style="width: 25%;"><a href="tidy.html">tidy</a></td>
+<td>Tidy a Playlist</td></tr>
+<tr><td style="width: 25%;"><a href="tidy.html">tidy.playlist</a></td>
+<td>Tidy a Playlist</td></tr>
+<tr><td style="width: 25%;"><a href="toggle_my_shuffle.html">toggle_my_shuffle</a></td>
+<td>Toggle shuffle on or off for user’s playback.</td></tr>
+<tr><td style="width: 25%;"><a href="transfer_my_playback.html">transfer_my_playback</a></td>
+<td>Transfer playback to a new device and determine if it should start playing.</td></tr>
+<tr><td style="width: 25%;"><a href="unfollow_playlist.html">unfollow_playlist</a></td>
+<td>Remove Current User from Followers of Playlist.</td></tr>
+<tr><td style="width: 25%;"><a href="validate_parameters.html">validate_parameters</a></td>
+<td>Asssertion for Correct API Requests.</td></tr>
+</table>
+</div></body></html>

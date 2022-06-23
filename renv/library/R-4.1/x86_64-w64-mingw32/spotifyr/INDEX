@@ -1,0 +1,122 @@
+add_tracks_to_playlist
+                        Add Tracks to User’s Playlist
+change_playlist_details
+                        Change a playlist’s name and public/private
+                        state. (The user must, of course, own the
+                        playlist.)
+check_me_following      Check Me Following
+check_users_following   Check if Users Follow a Playlist
+create_playlist         Create Playlist for User
+dedupe_album_names      Remove duplicate album names
+follow_artists_or_users
+                        Add Current User as Follower Artists or Other
+                        Users
+follow_playlist         Add Current User to Followers of Playlist.
+get_album               Get Spotify catalog information for a single
+                        album.
+get_album_tracks        Get Spotify catalog information about an
+                        album’s tracks. Optional parameters can be used
+                        to limit the number of tracks returned.
+get_albums              Get Spotify catalog information for multiple
+                        albums identified by their Spotify IDs.
+get_artist              Get Spotify catalog information for a single
+                        artist identified by their unique Spotify ID.
+get_artist_albums       Get Spotify catalog information for multiple
+                        artists identified by their Spotify IDs.
+get_artist_audio_features
+                        Get Audio Features For Artists' Discography
+get_artist_top_tracks   Get Spotify catalog information about an
+                        artist’s top tracks by country.
+get_artists             Get Spotify catalog information for multiple
+                        artists identified by their Spotify IDs.
+get_categories          Get a list of Spotify categories
+get_category            Get a single category used to tag items
+get_category_playlists
+                        Get a list of Spotify playlists tagged with a
+                        particular category
+get_discography         Retrieve Artist Discography with Song Lyrics
+                        and Audio Info
+get_featured_playlists
+                        Get list of Spotify featured playlists
+get_genre_artists       Search for Artists by Genre
+get_label_artists       Search for artists by label
+get_my_current_playback
+                        Get information about the user’s current
+                        playback state, including track, track
+                        progress, and active device.
+get_my_currently_playing
+                        Get the object currently being played on the
+                        user’s Spotify account.
+get_my_devices          Get information about a user’s available
+                        devices.
+get_my_followed_artists
+                        Get My Followed Artists
+get_my_playlists        Get List of My Playlists
+get_my_profile          Get User Profile Information
+get_my_recently_played
+                        Get Current User's Recently Played Tracks
+get_my_saved_albums     Get Current User's Saved Albums
+get_my_saved_tracks     Get User's Saved Tracks
+get_my_top_artists_or_tracks
+                        Get User’s Top Artists or Tracks
+get_new_releases        Get new releases
+get_playlist            Get User Playlist
+get_playlist_audio_features
+                        Get Features and Popularity of Playlists on
+                        Spotify
+get_playlist_cover_image
+                        Get Image Associated with Playlist
+get_playlist_tracks     Get Details of User Playlist Tracks.
+get_recommendations     Create a playlist-style listening experience
+                        based on seed artists, tracks and genres.
+get_recommendations_all
+                        Get recommendations for unlimited vector of
+                        track IDs
+get_related_artists     Get Spotify catalog information about artists
+                        similar to a given artist. Similarity is based
+                        on analysis of the Spotify community’s
+                        listening history.
+get_show                Get Spotify catalog information for a single
+                        show.
+get_show_episodes       Get Spotify catalog information about an show's
+                        episodes. Optional parameters can be used to
+                        limit the number of episodes returned.
+get_shows               Get Spotify catalog information for multiple
+                        shows identified by their Spotify IDs.
+get_spotify_access_token
+                        Get Spotify Access Token
+get_spotify_authorization_code
+                        Get Spotify Authorization Code
+get_track               Get Spotify catalog information for a single
+                        track identified by its unique Spotify ID.
+get_track_audio_analysis
+                        Get a detailed audio analysis for a single
+                        track identified by its unique Spotify ID.
+get_track_audio_features
+                        Get audio features of tracks
+get_tracks              Get Spotify catalog information for a single
+                        track identified by its unique Spotify ID.
+get_user_audio_features
+                        Get User Playlist Audio Features
+get_user_playlists      Get List of User Playlists
+get_user_profile        Get User Public Profile Information
+pause_my_playback       Pause Playback
+remove_tracks_from_playlist
+                        Remove Tracks from User’s Playlist
+scopes                  Valid Authorization Scopes
+search_spotify          Search for an Item
+seek_to_position        Seeks to the given position in the user’s
+                        currently playing track.
+set_my_repeat_mode      Set User Playback Mode
+set_my_volume           Set User Device Volume
+skip_my_playback        Skips to Next Track
+skip_my_playback_previous
+                        Skips to previous track in the user’s queue.
+spotifyr                'spotifyr' package
+start_my_playback       Skips to previous track in the user’s queue.
+tidy                    Tidy a Playlist
+toggle_my_shuffle       Toggle shuffle on or off for user’s playback.
+transfer_my_playback    Transfer playback to a new device and determine
+                        if it should start playing.
+unfollow_playlist       Remove Current User from Followers of Playlist.
+validate_parameters     Asssertion for Correct API Requests.

@@ -133,14 +133,14 @@ server <- function(input, output, server) {
     
     
     output$top10favouriteArtist <- renderPlotly({
-      data3 <- track_num_artist() 
+      data3 <- track_num_artist()
       plot_ly(
         type = 'table',
         header = list(
-          values = c('Position', 'Artist_Name', 'Quantity')
+          values = names(data3)
         ),
         cells = list(
-          values = rbind(data3$Position, data3$Artist_Name, data3$Quantity)
+          values = t(as.matrix(unname(data3)))
         )
       )
     })

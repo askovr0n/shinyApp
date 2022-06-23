@@ -108,3 +108,29 @@ track_num_artist <-
   select(-id) %>%
   top_n(20, n) %>% 
   arrange(desc(n))
+
+
+ceiling(get_my_saved_tracks(include_meta_info = TRUE)[['total']] / 50) %>%
+  seq() %>%
+  map(function(x) {
+    get_my_saved_tracks(limit = 50, offset = (x - 1) * 50)
+  }) %>% reduce(rbind) %>%
+  select(track.artists) %>%
+  reduce(rbind) %>%
+  reduce(rbind) %>%
+  select(id, name) %>%
+  count(id, sort = TRUE) %>%
+  left_join(ceiling(get_my_saved_tracks(include_meta_info = TRUE)[['total']] / 50) %>%
+              seq() %>%
+              map(function(x) {
+                get_my_saved_tracks(limit = 50, offset = (x - 1) * 50)
+              }) %>% reduce(rbind) %>%
+              select(track.artists) %>%
+              reduce(rbind) %>%
+              reduce(rbind) %>%
+              select(id, name), by = 'id',.) %>%
+  unique() %>%
+  select(-id) %>%
+  top_n(2, n)  %>% 
+  rename('Artist_Name' = 'name', 'Quantity' = n) %>% 
+  arrange(desc(Quantity)) %>% mutate(Position = row_number()) %>% tibble() %>% unname() %>% as.matrix() %>% t()

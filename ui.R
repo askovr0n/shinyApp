@@ -113,8 +113,8 @@ header.append('<div style=\"float:right\"><a href=\"https://www.spotify.com/pl/\
                         column(
                           4, tags$h3("Top 5 Most Listened Tracks"), offset = 2
                         )),
-                        fluidRow(column(
-                          4, plotlyOutput("top10favouriteArtists"), offset = 1
+                        fluidRow(
+                          column(4, plotlyOutput("top10favouriteArtist"), offset = 1
                         ),
                         column(4, "d", offset = 2))
                         
