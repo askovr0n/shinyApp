@@ -36,7 +36,8 @@ my_plists2 <- my_plists %>%
   select(id)
 
 tracks <- my_plists2[['id']] %>% lapply(get_playlist_tracks)
-features <- tracks[[1]] %>% select(track.id) %>% lapply(get_track_audio_features) %>% tibble()
+features <-
+  tracks[[1]] %>% select(track.id) %>% lapply(get_track_audio_features) %>% tibble()
 
 tracks2 <- tracks[[1]] %>%
   left_join(features[[1]][[1]], by = c("track.uri" = "uri"))
@@ -48,6 +49,33 @@ tracks2 %>%
 tracks2 %>% 
   select(danceability:tempo) %>%
   fviz_cluster(kmeans2, .)
+
+ceiling(get_my_saved_tracks(include_meta_info = TRUE)[['total']] / 50) %>%
+  seq() %>%
+  map(function(x) {
+    get_my_saved_tracks(limit = 50, offset = (x - 1) * 50)
+  }) %>% 
+  reduce(rbind) %>% 
+  tibble() %>% 
+  select(added_at,track.artists,track.name,track.id) %>% 
+  unnest() %>% 
+  select(added_at, name, track.id, track.name) %>% 
+  nest(name) -> y
+ 
+  y %>% mutate(artistsnames = map(.x = y$data, .f = ~paste(.x$name, collapse = ", "))) %>% unnest() %>% select(-name) %>% distinct() -> y_new
+  
+  
+ features <- y %>% 
+   select(track.id) %>% 
+   lapply(get_track_audio_features) %>% 
+   as.data.frame() %>% 
+   select(track.id.danceability:track.id.tempo, track.id.id, track.id.duration_ms) %>% 
+   rename_all(~str_replace(.,"^track.id.",""))
+ 
+ dataset <- y_new %>% left_join(features, by = c("track.id" = "id"))
+   
+  # reduce(rbind) %>% 
+  # distinct()
 
 
 all_my_fav_tracks <-
