@@ -9,4 +9,4 @@
 
 Favourite tracks   |  Analysis of liked songs  |  Recommendation system
 :-------------------------:|:-------------------------:|:-------------------------:
-![](images/Project_11/zdj_1.png)  |  ![](images/Project_11/zdj_3.png)  |  ![](images/Project_11/zdj_4.png)
+![](https://github.com/askovr0n/Portfolio/blob/main/images/Project_11/zdj_1.png)  |  ![](https://github.com/askovr0n/Portfolio/blob/main/images/Project_11/zdj_3.png)  |  ![](https://github.com/askovr0n/Portfolio/blob/main/images/Project_11/zdj_4.png)
